@@ -137,7 +137,7 @@ var pesmiIzRacuna = function(racunId, callback) {
     Track.TrackId IN (SELECT InvoiceLine.TrackId FROM InvoiceLine, Invoice \
     WHERE InvoiceLine.InvoiceId = Invoice.InvoiceId AND Invoice.InvoiceId = " + racunId + ")",
     function(napaka, vrstice) {
-      console.log(vrstice);
+      callback(vrstice);
     })
 }
 
@@ -146,7 +146,7 @@ var strankaIzRacuna = function(racunId, callback) {
     pb.all("SELECT Customer.* FROM Customer, Invoice \
             WHERE Customer.CustomerId = Invoice.CustomerId AND Invoice.InvoiceId = " + racunId,
     function(napaka, vrstice) {
-      console.log(vrstice + "  x");
+      callback(vrstice);
     })
 }
 
@@ -157,7 +157,8 @@ streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
 
 // Izpis računa v HTML predstavitvi ali izvorni XML obliki
 streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
-    pesmiIzKosarice(zahteva, function(pesmi) {
+  vrniStranke(function (napaka ,narocnik) {
+     pesmiIzKosarice(zahteva, function(pesmi) {
       if (!pesmi) {
         odgovor.sendStatus(500);
       } else if (pesmi.length == 0) {
@@ -168,11 +169,15 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
         odgovor.render('eslog', {
           vizualiziraj: zahteva.params.oblika == 'html' ? true : false,
           postavkeRacuna: pesmi,
-          stranka: zahteva.session.izbranaStranka
+          stranka: narocnik,
+          idStranke: zahteva.session.izbranaStranka-1
         });
         console.log(zahteva.session.izbranaStranka);
+        console.log(narocnik[zahteva.session.izbranaStranka]);
       }
     });
+  });
+   
 
 });
 

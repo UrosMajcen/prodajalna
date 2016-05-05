@@ -173,19 +173,19 @@
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
-					<NazivPartnerja1><%= stranka[0].FirstName %><%= stranka[0].LastName %></NazivPartnerja1>
-					<NazivPartnerja2><%= stranka[0].Company %></NazivPartnerja2>
+					<NazivPartnerja1><%= stranka[idStranke].FirstName %> <%= stranka[idStranke].LastName %></NazivPartnerja1>
+					<NazivPartnerja2><%= stranka[idStranke].Company %></NazivPartnerja2>
 					<NazivPartnerja3></NazivPartnerja3>
 					<NazivPartnerja4></NazivPartnerja4>
 				</NazivPartnerja>
 				<Ulica>
-					<Ulica1><%= stranka[0].Address %></Ulica1>
+					<Ulica1><%= stranka[idStranke].Address %></Ulica1>
 					<Ulica2></Ulica2>
 					<Ulica3></Ulica3>
 				</Ulica>
-				<Kraj><%= stranka[0].City %></Kraj>
-				<NazivDrzave><%= stranka[0].Country %></NazivDrzave>
-				<PostnaStevilka><%= stranka[0].PostalCode %></PostnaStevilka>
+				<Kraj><%= stranka[idStranke].City %></Kraj>
+				<NazivDrzave><%= stranka[idStranke].Country %></NazivDrzave>
+				<PostnaStevilka><%= stranka[idStranke].PostalCode %></PostnaStevilka>
 				<KodaDrzave></KodaDrzave>
 			</NazivNaslovPodjetja>
 			<FinancniPodatkiPodjetja>
@@ -210,14 +210,14 @@
 			</ReferencniPodatkiPodjetja>
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
-					<ImeOsebe><%= stranka[0].FirstName %><%= stranka[0].LastName %>(<%=stranka[0].Email%>)</ImeOsebe>
+					<ImeOsebe><%= stranka[idStranke].FirstName %> <%= stranka[idStranke].LastName %> (<%=stranka[idStranke].Email%>)</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
-					<StevilkaKomunikacije><%= stranka[0].Phone %></StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= stranka[idStranke].Phone %></StevilkaKomunikacije>
 					<VrstaKomunikacije>TE</VrstaKomunikacije>
 				</Komunikacije>
 				<Komunikacije>
-					<StevilkaKomunikacije><%= stranka[0].Fax %></StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= stranka[idStranke].Fax %></StevilkaKomunikacije>
 					<VrstaKomunikacije>FX</VrstaKomunikacije>
 				</Komunikacije>
 			</KontaktiPodjetja>
