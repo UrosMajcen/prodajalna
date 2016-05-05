@@ -163,7 +163,6 @@ streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
             postavkeRacuna: pesmi,
             stranka: kupec
           });
-          console.log(kupec);
         }
       });
     });
