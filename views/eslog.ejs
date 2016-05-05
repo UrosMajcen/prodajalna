@@ -169,24 +169,23 @@
 			</KontaktiPodjetja>
 		</PodatkiPodjetja>
 		<!-- naročnik -->
-		<narocnik>
 		<PodatkiPodjetja>
 			<NazivNaslovPodjetja>
 				<VrstaPartnerja>BY</VrstaPartnerja>
 				<NazivPartnerja>
-					<NazivPartnerja1>FirstName LastName </NazivPartnerja1>
-					<NazivPartnerja2>Company</NazivPartnerja2>
+					<NazivPartnerja1><%= stranka[0].FirstName %><%= LastName %></NazivPartnerja1>
+					<NazivPartnerja2><%= stranka[0].Company %></NazivPartnerja2>
 					<NazivPartnerja3></NazivPartnerja3>
 					<NazivPartnerja4></NazivPartnerja4>
 				</NazivPartnerja>
 				<Ulica>
-					<Ulica1>Address </Ulica1>
+					<Ulica1><%= stranka[0].Address %></Ulica1>
 					<Ulica2></Ulica2>
 					<Ulica3></Ulica3>
 				</Ulica>
-				<Kraj>City</Kraj>
-				<NazivDrzave>Country</NazivDrzave>
-				<PostnaStevilka>PostalCode</PostnaStevilka>
+				<Kraj><%= stranka[0].City %></Kraj>
+				<NazivDrzave><%= stranka[0].Country %></NazivDrzave>
+				<PostnaStevilka><%= stranka[0].PostalCode %></PostnaStevilka>
 				<KodaDrzave></KodaDrzave>
 			</NazivNaslovPodjetja>
 			<FinancniPodatkiPodjetja>
@@ -211,19 +210,18 @@
 			</ReferencniPodatkiPodjetja>
 			<KontaktiPodjetja>
 				<KontaktnaOseba>
-					<ImeOsebe>FirstName LastName(Email)</ImeOsebe>
+					<ImeOsebe><%= stranka[0].FirstName %><%= LastName %>(<%=Email%>)</ImeOsebe>
 				</KontaktnaOseba>
 				<Komunikacije>
-					<StevilkaKomunikacije>Phone</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= stranka[0].Phone %></StevilkaKomunikacije>
 					<VrstaKomunikacije>TE</VrstaKomunikacije>
 				</Komunikacije>
 				<Komunikacije>
-					<StevilkaKomunikacije>Fax</StevilkaKomunikacije>
+					<StevilkaKomunikacije><%= stranka[0].Fax %></StevilkaKomunikacije>
 					<VrstaKomunikacije>FX</VrstaKomunikacije>
 				</Komunikacije>
 			</KontaktiPodjetja>
 		</PodatkiPodjetja>
-		</narocnik>
 		<!-- prejemnik -->
 		<PodatkiPodjetja>
 			<NazivNaslovPodjetja>
