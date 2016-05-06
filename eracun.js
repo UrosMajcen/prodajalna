@@ -169,7 +169,8 @@ streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
           odgovor.render('eslog', {
             vizualiziraj: true,
             postavkeRacuna: pesmi,
-            stranka: kupec
+            stranka: kupec,
+            idStranke: 0
           });
         }
       });
@@ -194,8 +195,6 @@ streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
           stranka: narocnik,
           idStranke: zahteva.session.izbranaStranka-1
         });
-        console.log(zahteva.session.izbranaStranka);
-        console.log(narocnik[zahteva.session.izbranaStranka]);
       }
     });
   });
