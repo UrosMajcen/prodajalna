@@ -156,8 +156,26 @@ var strankaIzRacuna = function(racunId, callback) {
 
 // Izpis računa v HTML predstavitvi na podlagi podatkov iz baze
 streznik.post('/izpisiRacunBaza', function(zahteva, odgovor) {
-  odgovor.end();
-})
+   var form = new formidable.IncomingForm();
+  
+  form.parse(zahteva, function (napaka1, polja, datoteke) {
+    strankaIzRacuna(polja.seznamRacunov, function(kupec) {
+      pesmiIzRacuna(polja.seznamRacunov, function(pesmi){
+        if (napaka1){
+           napaka1 = true;
+        }
+        else {
+          odgovor.setHeader('content-type', 'text/xml');
+          odgovor.render('eslog', {
+            vizualiziraj: true,
+            postavkeRacuna: pesmi,
+            stranka: kupec
+          });
+        }
+      });
+    });
+  });
+});
 
 // Izpis računa v HTML predstavitvi ali izvorni XML obliki
 streznik.get('/izpisiRacun/:oblika', function(zahteva, odgovor) {
